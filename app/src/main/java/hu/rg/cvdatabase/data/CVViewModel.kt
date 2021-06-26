@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CVViewModel(application: Application) : AndroidViewModel(application) {
-    private val getAllCVs : LiveData<List<CV>>
+    val getAllCVs : LiveData<List<CV>>
     private val repository : CVRepository
 
     init {
