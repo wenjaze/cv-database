@@ -23,4 +23,9 @@
             android:id="@+id/action_addFragment_to_listFragment"
             app:destination="@id/listFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/CVFragment"
+        android:name="hu.rg.cvdatabase.CVFragment"
+        android:label="fragment_cv"
+        tools:layout="@layout/fragment_cv" />
 </navigation>

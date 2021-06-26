@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/bgColor"
     android:padding="@dimen/small_padding">
 
     <TextView
@@ -11,67 +12,87 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="20"
+        android:textColor="@color/secondaryColor"
         android:textSize="@dimen/text_size_bigger"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nameText"
+        app:layout_constraintTop_toBottomOf="@+id/ageRaw" />
 
     <TextView
         android:id="@+id/nameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:textSize="@dimen/text_size_medium"
         android:text="Vladimir Putin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ageText"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.508" />
+        android:textStyle="bold"
+        android:textColor="@color/secondaryColor"
+        android:textSize="@dimen/text_size_big"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/cityNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginBottom="16dp"
         android:text="Miami"
+        android:textColor="@color/secondaryColor"
         android:textSize="@dimen/text_size_medium"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/nameText"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/nameText"
+        app:layout_constraintStart_toStartOf="@+id/nameText"
+        app:layout_constraintTop_toBottomOf="@+id/nameText"
+        app:layout_constraintVertical_bias="0.317" />
 
     <TextView
         android:id="@+id/streetNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="St. name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cityNameText"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262" />
+        android:textColor="@color/secondaryColor"
+        app:layout_constraintEnd_toEndOf="@+id/cityNameText"
+        app:layout_constraintStart_toStartOf="@+id/cityNameText"
+        app:layout_constraintTop_toBottomOf="@+id/cityNameText" />
 
     <TextView
         android:id="@+id/streetNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:text="23"
+        android:textColor="@color/secondaryColor"
         app:layout_constraintBottom_toTopOf="@+id/postalCodeText"
-        app:layout_constraintStart_toEndOf="@+id/cityNameText"
-        app:layout_constraintTop_toBottomOf="@+id/streetNameText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="@+id/streetNameText"
+        app:layout_constraintStart_toStartOf="@+id/streetNameText"
+        app:layout_constraintTop_toBottomOf="@+id/streetNameText" />
 
     <TextView
         android:id="@+id/postalCodeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="44004"
+        android:textColor="@color/secondaryColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/streetNameText"
-        app:layout_constraintStart_toEndOf="@+id/cityNameText"
-        app:layout_constraintTop_toBottomOf="@+id/streetNumber"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintStart_toStartOf="@+id/streetNameText" />
+
+    <TextView
+
+        android:id="@+id/ageRaw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="age:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nameText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cv_icon" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

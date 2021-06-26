@@ -1,11 +1,13 @@
 package hu.rg.cvdatabase.fragment.list
 
+import android.content.Context
 import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import hu.rg.cvdatabase.R
+import hu.rg.cvdatabase.data.CVDatabase
 import hu.rg.cvdatabase.data.entities.CV
 import kotlinx.android.synthetic.main.cv_preview_layout.view.*
 
@@ -23,6 +25,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = cvList[position]
+
         holder.itemView.nameText.text = currentItem.name
         holder.itemView.ageText.text = currentItem.age.toString()
         holder.itemView.cityNameText.text = currentItem.address.cityName
