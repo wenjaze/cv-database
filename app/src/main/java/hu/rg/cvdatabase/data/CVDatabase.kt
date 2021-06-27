@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import hu.rg.cvdatabase.data.dao.CVDao
 import hu.rg.cvdatabase.data.entities.*
 
 @Database( entities = [
@@ -28,7 +29,9 @@ abstract class CVDatabase() : RoomDatabase() {
                     context.applicationContext,
                     CVDatabase::class.java,
                     "cv_database"
-                ).build().also {
+                )
+                    .fallbackToDestructiveMigration()
+                    .build().also {
                     INSTANCE = it
                 }
             }

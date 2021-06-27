@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_CVFragment"
+            app:destination="@id/CVFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"

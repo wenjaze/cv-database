@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.rg.cvdatabase.R
-import hu.rg.cvdatabase.data.CVViewModel
+import hu.rg.cvdatabase.data.viewmodel.CVViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {

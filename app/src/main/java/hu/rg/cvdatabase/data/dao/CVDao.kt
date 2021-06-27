@@ -1,4 +1,4 @@
-package hu.rg.cvdatabase.data
+package hu.rg.cvdatabase.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

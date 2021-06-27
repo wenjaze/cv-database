@@ -4,11 +4,9 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import hu.rg.cvdatabase.data.CVDao
+import hu.rg.cvdatabase.data.dao.CVDao
 import hu.rg.cvdatabase.data.CVDatabase
 import hu.rg.cvdatabase.data.entities.*
 import kotlinx.coroutines.launch
@@ -39,16 +37,16 @@ class MainActivity : AppCompatActivity() {
             Skill("braveness", "Fildberg Gunther")
         )
         val schools = listOf(
-            School("Jake Wharton School","2013","2030","Edward Pollen"),
-            School("Kotlin School","2010","2030","Rajesh Anish"),
-            School("JetBrains School","2013","2030","Fildberg Gunther")
+            School("Jake Wharton School","2013","2030","Computer Science","Edward Pollen"),
+            School("Kotlin School","2010","2030","Bucthery","Rajesh Anish"),
+            School("JetBrains School","2013","2030","Mathematics","Fildberg Gunther")
         )
         val jobs = listOf(
-            Job(2L,"Software Engineer","2010","2012","Google","Edward Pollen"),
-            Job(3L,"Butcher","2010","2012","TESCO","Rajesh Anish"),
-            Job(4L,"Postman","2004","2007","Posta Hungary","Rajesh Anish"),
-            Job(5L,"Senior Kotlin Engineer","2010","2012","Google","Fildberg Gunther"),
-            Job(6L,"Team Lead Developer","2012","2015","Google","Fildberg Gunther")
+            Job("Software Engineer","2010","2012","Google","Edward Pollen"),
+            Job("Butcher","2010","2012","TESCO","Rajesh Anish"),
+            Job("Postman","2004","2007","Posta Hungary","Rajesh Anish"),
+            Job("Senior Kotlin Engineer","2010","2012","Google","Fildberg Gunther"),
+            Job("Team Lead Developer","2012","2015","Google","Fildberg Gunther")
         )
         val cvs = listOf(
             CV("Fildberg Gunther", 24,
@@ -61,10 +59,10 @@ class MainActivity : AppCompatActivity() {
         )
 
         val languages = listOf(
-            Language('C',"French","Edward Pollen") ,
-            Language('B',"English","Edward Pollen"),
-            Language('C',"Russian","Rajesh Anish") ,
-            Language('B',"Polish","Fildberg Gunther")
+            Language("C","French","Edward Pollen") ,
+            Language("B","English","Edward Pollen"),
+            Language("C","Russian","Rajesh Anish") ,
+            Language("B","Polish","Fildberg Gunther")
         )
 
         lifecycleScope.launch {

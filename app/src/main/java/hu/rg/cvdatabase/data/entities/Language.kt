@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Language(
-    val level : Char,
+    val level: String,
     @PrimaryKey
-    val languageName : String,
-    val personName : String
+    val languageName: String,
+    val personName: String
 )

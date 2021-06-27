@@ -1,6 +1,7 @@
-package hu.rg.cvdatabase.data
+package hu.rg.cvdatabase.data.repository
 
 import androidx.lifecycle.LiveData
+import hu.rg.cvdatabase.data.dao.CVDao
 import hu.rg.cvdatabase.data.entities.*
 
 class CVRepository(private val cvDao: CVDao) {
@@ -26,5 +27,6 @@ class CVRepository(private val cvDao: CVDao) {
     suspend fun addJob(job : Job) {
         cvDao.insertJob(job)
     }
+
 
 }

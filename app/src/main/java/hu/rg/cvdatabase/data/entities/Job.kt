@@ -5,8 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Job (
-    @PrimaryKey(autoGenerate = true)
-    val jobId : Long,
+    @PrimaryKey
     val title: String,
     val from : String,
     val to : String,
