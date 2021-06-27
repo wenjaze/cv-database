@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -16,6 +17,8 @@ import hu.rg.cvdatabase.data.viewmodel.CVViewModel
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+
+
     @SuppressLint("LongLogTag")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +30,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
 
         insertSampleData()
-
-
-
     }
 
     private fun insertSampleData(){
