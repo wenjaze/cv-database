@@ -8,6 +8,8 @@ class CVRepository(private val cvDao: CVDao) {
 
     val getAllCVs : LiveData<List<CV>> = cvDao.getAllCVs()
 
+    fun getPeopleWithLanguage(lang : String) = cvDao.getCVWhoSpeaksLanguage(lang)
+
     suspend fun addCV(cv : CV) {
         cvDao.insertCV(cv)
     }

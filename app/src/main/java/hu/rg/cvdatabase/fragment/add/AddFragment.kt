@@ -28,7 +28,7 @@ class AddFragment : Fragment() {
 
         mcvViewModel = ViewModelProvider(this).get(CVViewModel::class.java)
 
-        rootView.addButton.setOnClickListener {
+        rootView.updateAddButton.setOnClickListener {
             addCVToDB()
         }
 
@@ -40,39 +40,39 @@ class AddFragment : Fragment() {
 
 
         // Personal information
-        val name = nameTextField.text.toString()
-        val age = ageTextField.text.toString()
+        val name = updateNameTextField.text.toString()
+        val age = updateAgeTextField.text.toString()
 
         // Address
-        val streetName = streetNameTextField.text.toString()
-        val streetNumber = streetNumberTextField.text.toString()
-        val postalCode = postalCodeTextField.text.toString()
-        val cityName = cityNameTextField.text.toString()
+        val streetName = updateStreetNameTextField.text.toString()
+        val streetNumber = updateStreetNumberTextField.text.toString()
+        val postalCode = updatePostalCodeTextField.text.toString()
+        val cityName = updateCityNameTextField.text.toString()
 
         // Education
-        val schoolName = schoolName.text.toString()
-        val schoolFrom = schoolFrom.text.toString()
-        val schoolTo = schoolTo.text.toString()
-        val schoolSubject = schoolSubject.text.toString()
+        val schoolName = updateSchoolName.text.toString()
+        val schoolFrom = updateSchoolFrom.text.toString()
+        val schoolTo = updateSchoolTo.text.toString()
+        val schoolSubject = updateSchoolSubject.text.toString()
 
         // Experience
-        val jobTitle = jobName.text.toString()
-        val jobFrom = jobFrom.text.toString()
-        val jobTo = jobTo.text.toString()
-        val companyName = companyName.text.toString()
+        val jobTitle = updateJobName.text.toString()
+        val jobFrom = updateJobFrom.text.toString()
+        val jobTo = updateJobTo.text.toString()
+        val companyName = updateCompanyName.text.toString()
 
         // Skills
-        val skillOne = skillOne.text.toString()
-        val skillTwo = skillTwo.text.toString()
-        val skillThree = skillThree.text.toString()
+        val skillOne = updateSkillOne.text.toString()
+        val skillTwo = updateSkillTwo.text.toString()
+        val skillThree = updateSkillThree.text.toString()
 
         // Languages
-        val languageOne = languageOne.text.toString()
-        val languageTwo = languageTwo.text.toString()
-        val languageThree = languageThree.text.toString()
-        val levelOne = levelOne.text.toString()
-        val levelTwo = levelTwo.text.toString()
-        val levelThree = levelThree.text.toString()
+        val languageOne = updateLanguageOne.text.toString()
+        val languageTwo = updateLanguageTwo.text.toString()
+        val languageThree = updateLanguageThree.text.toString()
+        val levelOne = updateLevelOne.text.toString()
+        val levelTwo = updateLevelTwo.text.toString()
+        val levelThree = updateLevelThree.text.toString()
 
         // Motivation letter
         val motivationLetter = motivationLetter.text.toString()

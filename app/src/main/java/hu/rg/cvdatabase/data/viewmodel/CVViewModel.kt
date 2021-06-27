@@ -20,6 +20,8 @@ class CVViewModel(application: Application) : AndroidViewModel(application) {
         getAllCVs = repository.getAllCVs
     }
 
+    fun getPeopleWithLanguage(lang : String) = repository.getPeopleWithLanguage(lang)
+
     fun insertCV(cv : CV) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.addCV(cv)

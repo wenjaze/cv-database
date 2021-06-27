@@ -28,6 +28,9 @@ interface CVDao {
     @Query("SELECT * FROM cv")
     fun getAllCVs() : LiveData<List<CV>>
 
+    @Query("SELECT * FROM language where languageName = :lang")
+    fun getCVWhoSpeaksLanguage(lang : String) : LiveData<List<Language>>
+
     @Transaction
     @Query("SELECT * FROM cv WHERE name = :personName")
     fun getCVWithJobs(personName: String): LiveData<List<CVWithJobs>>

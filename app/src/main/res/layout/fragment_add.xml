@@ -16,44 +16,44 @@
 
 
     <EditText
-        android:id="@+id/languageOne"
+        android:id="@+id/updateLanguageOne"
         android:layout_width="97dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:ems="10"
-        android:hint="Language"
+        android:hint="@string/language_raw"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintStart_toEndOf="@+id/skillOne"
-        app:layout_constraintTop_toBottomOf="@+id/educationText4" />
+        app:layout_constraintStart_toEndOf="@+id/updateSkillOne"
+        app:layout_constraintTop_toBottomOf="@+id/updateLanguagesText" />
 
     <EditText
-        android:id="@+id/levelOne"
+        android:id="@+id/updateLevelOne"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="Level"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintBottom_toTopOf="@+id/levelTwo"
+        app:layout_constraintBottom_toTopOf="@+id/updateLevelTwo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/languageTwo"
-        app:layout_constraintTop_toBottomOf="@+id/educationText4" />
+        app:layout_constraintStart_toEndOf="@+id/updateLanguageTwo"
+        app:layout_constraintTop_toBottomOf="@+id/updateLanguagesText" />
 
     <EditText
-        android:id="@+id/languageThree"
+        android:id="@+id/updateLanguageThree"
         android:layout_width="97dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:ems="10"
-        android:hint="Language"
+        android:hint="@string/language_raw"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintStart_toEndOf="@+id/skillThree"
-        app:layout_constraintTop_toBottomOf="@+id/languageTwo" />
+        app:layout_constraintStart_toEndOf="@+id/updateSkillThree"
+        app:layout_constraintTop_toBottomOf="@+id/updateLanguageTwo" />
 
     <EditText
-        android:id="@+id/levelThree"
+        android:id="@+id/updateLevelThree"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -61,21 +61,21 @@
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/languageTwo"
-        app:layout_constraintTop_toBottomOf="@+id/levelTwo" />
+        app:layout_constraintStart_toEndOf="@+id/updateLanguageTwo"
+        app:layout_constraintTop_toBottomOf="@+id/updateLevelTwo" />
 
     <TextView
-        android:id="@+id/educationText3"
+        android:id="@+id/updateExperienceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
         android:text="Experience:"
         android:textSize="@dimen/text_size_medium"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityNameTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/updateCityNameTextField" />
 
     <EditText
-        android:id="@+id/jobName"
+        android:id="@+id/updateJobName"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="1dp"
@@ -83,96 +83,96 @@
         android:hint="Job name"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintEnd_toEndOf="@+id/educationText3"
-        app:layout_constraintStart_toStartOf="@+id/educationText3"
-        app:layout_constraintTop_toBottomOf="@+id/educationText3" />
+        app:layout_constraintEnd_toEndOf="@+id/updateExperienceText"
+        app:layout_constraintStart_toStartOf="@+id/updateExperienceText"
+        app:layout_constraintTop_toBottomOf="@+id/updateExperienceText" />
 
     <EditText
-        android:id="@+id/companyName"
+        android:id="@+id/updateCompanyName"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="Company name"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintEnd_toEndOf="@+id/educationText3"
-        app:layout_constraintStart_toStartOf="@+id/educationText3"
-        app:layout_constraintTop_toBottomOf="@+id/jobTo" />
+        app:layout_constraintEnd_toEndOf="@+id/updateExperienceText"
+        app:layout_constraintStart_toStartOf="@+id/updateExperienceText"
+        app:layout_constraintTop_toBottomOf="@+id/updateJobTo" />
 
     <EditText
-        android:id="@+id/schoolSubject"
+        android:id="@+id/updateSchoolSubject"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="Subject"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintEnd_toEndOf="@+id/educationText"
-        app:layout_constraintStart_toStartOf="@+id/educationText"
-        app:layout_constraintTop_toBottomOf="@+id/schoolTo" />
+        app:layout_constraintEnd_toEndOf="@+id/updateEducationText"
+        app:layout_constraintStart_toStartOf="@+id/updateEducationText"
+        app:layout_constraintTop_toBottomOf="@+id/updateSchoolTo" />
 
     <EditText
-        android:id="@+id/schoolFrom"
+        android:id="@+id/updateSchoolFrom"
         android:layout_width="104dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="From"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintEnd_toEndOf="@+id/educationText"
-        app:layout_constraintStart_toStartOf="@+id/educationText"
-        app:layout_constraintTop_toBottomOf="@+id/schoolName" />
+        app:layout_constraintEnd_toEndOf="@+id/updateEducationText"
+        app:layout_constraintStart_toStartOf="@+id/updateEducationText"
+        app:layout_constraintTop_toBottomOf="@+id/updateSchoolName" />
 
     <EditText
-        android:id="@+id/jobTo"
+        android:id="@+id/updateJobTo"
         android:layout_width="113dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="To"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintEnd_toEndOf="@+id/educationText3"
-        app:layout_constraintStart_toStartOf="@+id/educationText3"
-        app:layout_constraintTop_toBottomOf="@+id/jobFrom" />
+        app:layout_constraintEnd_toEndOf="@+id/updateExperienceText"
+        app:layout_constraintStart_toStartOf="@+id/updateExperienceText"
+        app:layout_constraintTop_toBottomOf="@+id/updateJobFrom" />
 
     <EditText
-        android:id="@+id/schoolName"
+        android:id="@+id/updateSchoolName"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="School name"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintEnd_toEndOf="@+id/educationText"
-        app:layout_constraintStart_toStartOf="@+id/educationText"
-        app:layout_constraintTop_toBottomOf="@+id/educationText" />
+        app:layout_constraintEnd_toEndOf="@+id/updateEducationText"
+        app:layout_constraintStart_toStartOf="@+id/updateEducationText"
+        app:layout_constraintTop_toBottomOf="@+id/updateEducationText" />
 
     <EditText
-        android:id="@+id/skillOne"
+        android:id="@+id/updateSkillOne"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="Skill"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintEnd_toEndOf="@+id/educationText2"
-        app:layout_constraintStart_toStartOf="@+id/educationText2"
-        app:layout_constraintTop_toBottomOf="@+id/educationText2" />
+        app:layout_constraintEnd_toEndOf="@+id/updateSkillsText"
+        app:layout_constraintStart_toStartOf="@+id/updateSkillsText"
+        app:layout_constraintTop_toBottomOf="@+id/updateSkillsText" />
 
     <EditText
-        android:id="@+id/languageTwo"
+        android:id="@+id/updateLanguageTwo"
         android:layout_width="97dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:ems="10"
-        android:hint="Language"
+        android:hint="@string/language_raw"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintStart_toEndOf="@+id/skillTwo"
-        app:layout_constraintTop_toBottomOf="@+id/languageOne" />
+        app:layout_constraintStart_toEndOf="@+id/updateSkillTwo"
+        app:layout_constraintTop_toBottomOf="@+id/updateLanguageOne" />
 
     <EditText
-        android:id="@+id/levelTwo"
+        android:id="@+id/updateLevelTwo"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -180,89 +180,89 @@
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/languageTwo"
-        app:layout_constraintTop_toBottomOf="@+id/levelOne" />
+        app:layout_constraintStart_toEndOf="@+id/updateLanguageTwo"
+        app:layout_constraintTop_toBottomOf="@+id/updateLevelOne" />
 
     <EditText
-        android:id="@+id/skillTwo"
+        android:id="@+id/updateSkillTwo"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="Skill"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintEnd_toEndOf="@+id/educationText2"
-        app:layout_constraintStart_toStartOf="@+id/educationText2"
-        app:layout_constraintTop_toBottomOf="@+id/skillOne" />
+        app:layout_constraintEnd_toEndOf="@+id/updateSkillsText"
+        app:layout_constraintStart_toStartOf="@+id/updateSkillsText"
+        app:layout_constraintTop_toBottomOf="@+id/updateSkillOne" />
 
     <EditText
-        android:id="@+id/skillThree"
+        android:id="@+id/updateSkillThree"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="Skill"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintEnd_toEndOf="@+id/educationText2"
-        app:layout_constraintStart_toStartOf="@+id/educationText2"
-        app:layout_constraintTop_toBottomOf="@+id/skillTwo" />
+        app:layout_constraintEnd_toEndOf="@+id/updateSkillsText"
+        app:layout_constraintStart_toStartOf="@+id/updateSkillsText"
+        app:layout_constraintTop_toBottomOf="@+id/updateSkillTwo" />
 
     <EditText
-        android:id="@+id/jobFrom"
+        android:id="@+id/updateJobFrom"
         android:layout_width="113dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="From"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintEnd_toEndOf="@+id/educationText3"
-        app:layout_constraintStart_toStartOf="@+id/educationText3"
-        app:layout_constraintTop_toBottomOf="@+id/jobName" />
+        app:layout_constraintEnd_toEndOf="@+id/updateExperienceText"
+        app:layout_constraintStart_toStartOf="@+id/updateExperienceText"
+        app:layout_constraintTop_toBottomOf="@+id/updateJobName" />
 
     <EditText
-        android:id="@+id/schoolTo"
+        android:id="@+id/updateSchoolTo"
         android:layout_width="104dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="To"
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintEnd_toEndOf="@+id/educationText"
-        app:layout_constraintStart_toStartOf="@+id/educationText"
-        app:layout_constraintTop_toBottomOf="@+id/schoolFrom" />
+        app:layout_constraintEnd_toEndOf="@+id/updateEducationText"
+        app:layout_constraintStart_toStartOf="@+id/updateEducationText"
+        app:layout_constraintTop_toBottomOf="@+id/updateSchoolFrom" />
 
     <TextView
-        android:id="@+id/educationText"
+        android:id="@+id/updateEducationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Education:"
         android:textSize="@dimen/text_size_medium"
-        app:layout_constraintEnd_toStartOf="@+id/educationText3"
+        app:layout_constraintEnd_toStartOf="@+id/updateExperienceText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityNameTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/updateCityNameTextField" />
 
     <TextView
-        android:id="@+id/educationText2"
+        android:id="@+id/updateSkillsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Skills:"
         android:textSize="@dimen/text_size_medium"
-        app:layout_constraintEnd_toEndOf="@+id/educationText"
-        app:layout_constraintStart_toStartOf="@+id/educationText"
-        app:layout_constraintTop_toBottomOf="@+id/schoolSubject" />
+        app:layout_constraintEnd_toEndOf="@+id/updateEducationText"
+        app:layout_constraintStart_toStartOf="@+id/updateEducationText"
+        app:layout_constraintTop_toBottomOf="@+id/updateSchoolSubject" />
 
     <TextView
-        android:id="@+id/educationText4"
+        android:id="@+id/updateLanguagesText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Languages:"
         android:textSize="@dimen/text_size_medium"
-        app:layout_constraintEnd_toEndOf="@+id/educationText3"
-        app:layout_constraintStart_toStartOf="@+id/educationText3"
-        app:layout_constraintTop_toBottomOf="@+id/companyName" />
+        app:layout_constraintEnd_toEndOf="@+id/updateExperienceText"
+        app:layout_constraintStart_toStartOf="@+id/updateExperienceText"
+        app:layout_constraintTop_toBottomOf="@+id/updateCompanyName" />
 
     <Button
-        android:id="@+id/addButton"
+        android:id="@+id/updateAddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -274,7 +274,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/nameTextField"
+        android:id="@+id/updateNameTextField"
         android:layout_width="263dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -282,10 +282,10 @@
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/personalInformationText" />
+        app:layout_constraintTop_toBottomOf="@+id/updatePersonalInformationText" />
 
     <EditText
-        android:id="@+id/streetNameTextField"
+        android:id="@+id/updateStreetNameTextField"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -293,10 +293,10 @@
         android:inputType="textPersonName"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/updateNameTextField" />
 
     <EditText
-        android:id="@+id/cityNameTextField"
+        android:id="@+id/updateCityNameTextField"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -306,21 +306,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/streetNumberTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/updateStreetNumberTextField" />
 
     <EditText
-        android:id="@+id/streetNumberTextField"
+        android:id="@+id/updateStreetNumberTextField"
         android:layout_width="118dp"
         android:layout_height="40dp"
         android:ems="10"
         android:hint="St. number"
         android:inputType="number"
         android:textSize="@dimen/text_size_small"
-        app:layout_constraintStart_toEndOf="@+id/streetNameTextField"
-        app:layout_constraintTop_toBottomOf="@+id/nameTextField" />
+        app:layout_constraintStart_toEndOf="@+id/updateStreetNameTextField"
+        app:layout_constraintTop_toBottomOf="@+id/updateNameTextField" />
 
     <EditText
-        android:id="@+id/ageTextField"
+        android:id="@+id/updateAgeTextField"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -328,11 +328,11 @@
         android:inputType="number"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/nameTextField"
-        app:layout_constraintTop_toBottomOf="@+id/personalInformationText" />
+        app:layout_constraintStart_toEndOf="@+id/updateNameTextField"
+        app:layout_constraintTop_toBottomOf="@+id/updatePersonalInformationText" />
 
     <EditText
-        android:id="@+id/postalCodeTextField"
+        android:id="@+id/updatePostalCodeTextField"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:ems="10"
@@ -341,11 +341,11 @@
         android:inputType="number"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/streetNumberTextField"
-        app:layout_constraintTop_toBottomOf="@+id/ageTextField" />
+        app:layout_constraintStart_toEndOf="@+id/updateStreetNumberTextField"
+        app:layout_constraintTop_toBottomOf="@+id/updateAgeTextField" />
 
     <TextView
-        android:id="@+id/personalInformationText"
+        android:id="@+id/updatePersonalInformationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Personal information:"
@@ -355,14 +355,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/personalInformationText2"
+        android:id="@+id/updateMotivationLetterText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Motivation letter:"
         android:textSize="@dimen/text_size_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/skillThree" />
+        app:layout_constraintTop_toBottomOf="@+id/updateSkillThree" />
 
     <EditText
         android:id="@+id/motivationLetter"
@@ -373,10 +373,10 @@
         android:textSize="@dimen/text_size_small"
         android:hint="I applied to this job because..."
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/addButton"
+        app:layout_constraintBottom_toTopOf="@+id/updateAddButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/personalInformationText2"
+        app:layout_constraintTop_toBottomOf="@+id/updateMotivationLetterText"
         app:layout_constraintVertical_bias="0.523" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
