@@ -19,7 +19,10 @@ class CVViewModel(application: Application) : AndroidViewModel(application) {
         repository = CVRepository(cvDao)
         getAllCVs = repository.getAllCVs
     }
-
+    fun getCVWithSkills(personName: String) = repository.getCVWithSkills(personName)
+    fun getCVWithLanguages(personName: String) = repository.getCVWithLanguages(personName)
+    fun getCVWithSchools(personName: String) = repository.getCvWithSchools(personName)
+    fun getCVWithJobs(personName : String) = repository.getCVWithJobs(personName)
     fun getPeopleWithLanguage(lang : String) = repository.getPeopleWithLanguage(lang)
 
     fun insertCV(cv : CV) {

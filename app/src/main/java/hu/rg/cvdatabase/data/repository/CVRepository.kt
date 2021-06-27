@@ -8,6 +8,10 @@ class CVRepository(private val cvDao: CVDao) {
 
     val getAllCVs : LiveData<List<CV>> = cvDao.getAllCVs()
 
+    fun getCVWithLanguages(personName: String) = cvDao.getCVWithLanguages(personName)
+    fun getCVWithSkills(personName: String) = cvDao.getCVWithSkills(personName)
+    fun getCVWithJobs(personName: String) = cvDao.getCVWithJobs(personName)
+    fun getCvWithSchools(personName: String) = cvDao.getCVWithSchools(personName)
     fun getPeopleWithLanguage(lang : String) = cvDao.getCVWhoSpeaksLanguage(lang)
 
     suspend fun addCV(cv : CV) {
@@ -29,6 +33,8 @@ class CVRepository(private val cvDao: CVDao) {
     suspend fun addJob(job : Job) {
         cvDao.insertJob(job)
     }
+
+
 
 
 }
