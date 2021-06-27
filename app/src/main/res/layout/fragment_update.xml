@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/updateLanguageTwo" />
 
         <EditText
-            android:id="@+id/updateLevelThree"
+            android:id="@+id/levelThree"
             android:layout_width="60dp"
             android:layout_height="40dp"
             android:ems="10"
@@ -263,7 +263,7 @@
             android:layout_height="wrap_content"
 
             android:layout_marginBottom="16dp"
-            android:text="ADD"
+            android:text="UPDATE CV"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -361,7 +361,7 @@
             app:layout_constraintTop_toBottomOf="@+id/updateSkillThree" />
 
         <EditText
-            android:id="@+id/motivationLetter"
+            android:id="@+id/updateMotivationLetter"
             android:layout_width="333dp"
             android:layout_height="40dp"
             android:ems="10"

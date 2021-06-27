@@ -5,6 +5,7 @@ import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import hu.rg.cvdatabase.R
 import hu.rg.cvdatabase.data.CVDatabase
@@ -32,6 +33,16 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         holder.itemView.streetNameText.text = currentItem.address.streetName
         holder.itemView.streetNumber.text = currentItem.address.streetNumber.toString()
         holder.itemView.postalCodeText.text = currentItem.address.postalCode.toString()
+
+        holder.itemView.cvPreviewItem.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
+
+        holder.itemView.cvPreviewItem.imageView.setOnClickListener {
+            val action = ListFragmentDirections.actionListFragmentToCVFragment(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int = cvList.size

@@ -8,11 +8,14 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="hu.rg.cvdatabase.fragment.list.ListFragment"
-        android:label="CV List"
+        android:label="CV LIST"
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
         <action
             android:id="@+id/action_listFragment_to_CVFragment"
             app:destination="@id/CVFragment" />
@@ -20,15 +23,34 @@
     <fragment
         android:id="@+id/addFragment"
         android:name="hu.rg.cvdatabase.fragment.add.AddFragment"
-        android:label="Add CV"
+        android:label="CREATE"
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_listFragment"
             app:destination="@id/listFragment" />
     </fragment>
     <fragment
+        android:id="@+id/updateFragment"
+        android:name="hu.rg.cvdatabase.fragment.update.UpdateFragment"
+        android:label="UPDATE"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="selectedCV"
+            app:argType="hu.rg.cvdatabase.data.entities.CV" />
+    </fragment>
+    <fragment
         android:id="@+id/CVFragment"
         android:name="hu.rg.cvdatabase.CVFragment"
-        android:label="fragment_cv"
-        tools:layout="@layout/fragment_cv" />
+        android:label="READ"
+        tools:layout="@layout/fragment_cv" >
+        <action
+            android:id="@+id/action_CVFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="selectedCV"
+            app:argType="hu.rg.cvdatabase.data.entities.CV" />
+    </fragment>
 </navigation>
