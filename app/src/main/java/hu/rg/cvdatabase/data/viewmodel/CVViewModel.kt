@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 
 class CVViewModel(application: Application) : AndroidViewModel(application) {
     val getAllCVs : LiveData<List<CV>>
+
     private val repository : CVRepository
 
     init {
@@ -25,6 +26,13 @@ class CVViewModel(application: Application) : AndroidViewModel(application) {
             repository.deleteCV(cv)
         }
     }
+
+    fun getCVByName(name:String) = repository.getCVByName(name)
+
+    fun getCVWithCompanyName(companyName : String) = repository.getCVWithCompanyNAme(companyName)
+    fun getCVWithSchoolName(schoolName : String) = repository.getCVWithSchoolName(schoolName)
+
+    fun getCVsWithLanguage(language : String) = repository.getCVsWithLanguage(language)
 
     fun deleteAllCVs() {
         viewModelScope.launch(Dispatchers.IO) {

@@ -18,8 +18,17 @@ class CVRepository(private val cvDao: CVDao) {
         cvDao.deleteAllCVs()
     }
 
+    fun getCVWithCompanyNAme(companyName : String) = cvDao.getCVWithCompanyName(companyName)
+    fun getCVWithSchoolName(schoolName : String) = cvDao.getCVWithSchoolName(schoolName)
+
+    fun getCVsWithLanguage(language : String)=
+        cvDao.getCVsWithLanguage(language)
+
+
     fun getCVWithJobs(personName: String) = cvDao.getCVWithJobs(personName)
     fun getCvWithSchools(personName: String) = cvDao.getCVWithSchools(personName)
+
+    fun getCVByName(name:String) = cvDao.getCVByName(name)
 
     suspend fun updateCV(cv: CV) {
         cvDao.updateCV(cv)
