@@ -1,12 +1,10 @@
 package hu.rg.cvdatabase.fragment.update
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -23,23 +21,50 @@ import java.lang.IndexOutOfBoundsException
 class UpdateFragment : Fragment() {
 
     private val args by navArgs<UpdateFragmentArgs>()
-
+    private lateinit var mCVViewModel: CVViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setHasOptionsMenu(true)
 
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) findNavController().popBackStack()
+        if (item.itemId == R.id.menu_delete) deleteCV()
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun deleteCV() {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes") { _, _ ->
+            mCVViewModel.deleteCV(args.selectedCV)
+            Toast.makeText(
+                requireContext(),
+                "CV : "
+                        + args.selectedCV.name +
+                        " succesfully deleted.",
+                Toast.LENGTH_LONG
+            )
+                .show()
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        }
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setTitle("Delete ${args.selectedCV.name}?")
+        builder.setMessage("Are you sure you want to delete ${args.selectedCV.name} from the CVs?")
+        builder.create().show()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.delete_menu, menu)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        mCVViewModel = ViewModelProvider(this).get(CVViewModel::class.java)
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_update, container, false)
 
@@ -47,15 +72,15 @@ class UpdateFragment : Fragment() {
         val currentCV = args.selectedCV
 
 
-            mCVViewModel.getCVWithJobs(currentCV.name)
-                .observe(viewLifecycleOwner, Observer { jobs ->
-                    if (jobs[0].jobs.isNotEmpty()) {
-                        rootView.updateJobName.setText(jobs.lastOrNull()?.jobs?.last()?.title)
-                        rootView.updateJobFrom.setText(jobs?.lastOrNull()?.jobs?.last()?.from)
-                        rootView.updateJobTo.setText(jobs?.lastOrNull()?.jobs?.last()?.to)
-                        rootView.updateCompanyName.setText(jobs?.lastOrNull()?.jobs?.last()?.company)
-                    }
-                })
+        mCVViewModel.getCVWithJobs(currentCV.name)
+            .observe(viewLifecycleOwner, Observer { jobs ->
+                if (jobs[0].jobs.isNotEmpty()) {
+                    rootView.updateJobName.setText(jobs.lastOrNull()?.jobs?.last()?.title)
+                    rootView.updateJobFrom.setText(jobs?.lastOrNull()?.jobs?.last()?.from)
+                    rootView.updateJobTo.setText(jobs?.lastOrNull()?.jobs?.last()?.to)
+                    rootView.updateCompanyName.setText(jobs?.lastOrNull()?.jobs?.last()?.company)
+                }
+            })
 
         mCVViewModel.getCVWithSchools(currentCV.name)
             .observe(viewLifecycleOwner, Observer { schools ->
@@ -85,13 +110,13 @@ class UpdateFragment : Fragment() {
         rootView.updateMotivationLetter.setText(currentCV.motivationLetter)
 
         rootView.updateAddButton.setOnClickListener {
-            updateItems(mCVViewModel)
+            updateItems()
         }
 
         return rootView
     }
 
-    private fun updateItems(mCVViewModel : CVViewModel) {
+    private fun updateItems() {
 
         val name = updateNameTextField.text.toString()
         val age = updateAgeTextField.text.toString()
@@ -143,8 +168,8 @@ class UpdateFragment : Fragment() {
                     Integer.parseInt(postalCode),
                     cityName
                 ),
-                Skill(skillOne,skillTwo,skillThree),
-                Language(levelOne,levelTwo,levelThree,languageOne,languageTwo,languageThree),
+                Skill(skillOne, skillTwo, skillThree),
+                Language(levelOne, levelTwo, levelThree, languageOne, languageTwo, languageThree),
                 motivationLetter
             )
 
@@ -158,14 +183,13 @@ class UpdateFragment : Fragment() {
             Toast.makeText(
                 requireContext(),
                 "CV "
-                +name+
-                        "succesfully updated.",
+                        + name +
+                        " succesfully updated.",
                 Toast.LENGTH_LONG
             )
                 .show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
-        }
-        else {
+        } else {
             Toast.makeText(
                 requireContext(),
                 "Please fill Personal informations fields at least.",

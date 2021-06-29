@@ -362,16 +362,16 @@
 
         <EditText
             android:id="@+id/updateMotivationLetter"
-            android:layout_width="333dp"
-            android:layout_height="40dp"
+            android:layout_width="324dp"
+            android:layout_height="240dp"
             android:ems="10"
             android:gravity="start|top"
-            android:textSize="@dimen/text_size_small"
             android:hint="I applied to this job because..."
             android:inputType="textMultiLine"
+            android:textSize="@dimen/text_size_small"
             app:layout_constraintBottom_toTopOf="@+id/updateAddButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/updateLevelTwo"
+            app:layout_constraintStart_toStartOf="@+id/updateSkillTwo"
             app:layout_constraintTop_toBottomOf="@+id/updateMotivationLetterText"
             app:layout_constraintVertical_bias="0.523" />
 

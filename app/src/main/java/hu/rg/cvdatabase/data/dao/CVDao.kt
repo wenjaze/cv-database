@@ -17,6 +17,12 @@ interface CVDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertJob(job: Job)
 
+    @Query("DELETE FROM cv")
+    suspend fun deleteAllCVs()
+
+    @Delete
+    suspend fun deleteCV(cv : CV)
+
     @Update
     suspend fun updateCV(cv : CV)
 

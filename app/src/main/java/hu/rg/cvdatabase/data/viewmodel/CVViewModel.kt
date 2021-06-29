@@ -20,6 +20,18 @@ class CVViewModel(application: Application) : AndroidViewModel(application) {
         getAllCVs = repository.getAllCVs
     }
 
+    fun deleteCV(cv : CV) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteCV(cv)
+        }
+    }
+
+    fun deleteAllCVs() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllCVs()
+        }
+    }
+
     fun getCVWithSchools(personName: String) = repository.getCvWithSchools(personName)
     fun getCVWithJobs(personName : String) = repository.getCVWithJobs(personName)
 

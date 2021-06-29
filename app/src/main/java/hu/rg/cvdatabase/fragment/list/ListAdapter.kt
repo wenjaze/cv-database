@@ -27,12 +27,6 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         val currentItem = cvList[position]
 
         holder.itemView.nameText.text = currentItem.name
-        holder.itemView.ageText.text = currentItem.age.toString()
-        holder.itemView.cityNameText.text = currentItem.address.cityName
-        holder.itemView.streetNameText.text = currentItem.address.streetName
-        holder.itemView.streetNumber.text = currentItem.address.streetNumber.toString()
-        holder.itemView.postalCodeText.text = currentItem.address.postalCode.toString()
-
         holder.itemView.cvPreviewItem.setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
