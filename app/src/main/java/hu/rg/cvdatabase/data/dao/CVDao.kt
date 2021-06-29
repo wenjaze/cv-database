@@ -4,9 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import hu.rg.cvdatabase.data.entities.*
 import hu.rg.cvdatabase.data.entities.relations.CVWithJobs
-import hu.rg.cvdatabase.data.entities.relations.CVWithLanguages
 import hu.rg.cvdatabase.data.entities.relations.CVWithSchools
-import hu.rg.cvdatabase.data.entities.relations.CVWithSkills
 
 @Dao
 interface CVDao {
@@ -19,17 +17,17 @@ interface CVDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertJob(job: Job)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertLanguage(language: Language)
+    @Update
+    suspend fun updateCV(cv : CV)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertSkill(skill: Skill)
+    @Update
+    suspend fun updateJob(job:Job)
+
+    @Update
+    suspend fun updateSchool(school: School)
 
     @Query("SELECT * FROM cv")
     fun getAllCVs() : LiveData<List<CV>>
-
-    @Query("SELECT * FROM language where languageName = :lang")
-    fun getCVWhoSpeaksLanguage(lang : String) : LiveData<List<Language>>
 
     @Transaction
     @Query("SELECT * FROM cv WHERE name = :personName")
@@ -38,12 +36,4 @@ interface CVDao {
     @Transaction
     @Query("SELECT * FROM cv WHERE name = :personName")
     fun getCVWithSchools(personName: String): LiveData<List<CVWithSchools>>
-
-    @Transaction
-    @Query("SELECT * FROM cv WHERE name = :personName")
-    fun getCVWithLanguages(personName: String): LiveData<List<CVWithLanguages>>
-
-    @Transaction
-    @Query("SELECT * FROM cv WHERE name = :personName")
-    fun getCVWithSkills(personName: String): LiveData<List<CVWithSkills>>
 }

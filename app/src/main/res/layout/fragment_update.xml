@@ -117,7 +117,7 @@
             android:textSize="@dimen/text_size_small"
             app:layout_constraintEnd_toEndOf="@+id/updateEducationText"
             app:layout_constraintStart_toStartOf="@+id/updateEducationText"
-            app:layout_constraintTop_toBottomOf="@+id/updateSchoolName" />
+            app:layout_constraintTop_toBottomOf="@+id/updateSchoolNameTextField" />
 
         <EditText
             android:id="@+id/updateJobTo"
@@ -132,7 +132,7 @@
             app:layout_constraintTop_toBottomOf="@+id/updateJobFrom" />
 
         <EditText
-            android:id="@+id/updateSchoolName"
+            android:id="@+id/updateSchoolNameTextField"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:ems="10"

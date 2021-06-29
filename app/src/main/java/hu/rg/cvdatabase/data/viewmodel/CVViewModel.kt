@@ -19,11 +19,13 @@ class CVViewModel(application: Application) : AndroidViewModel(application) {
         repository = CVRepository(cvDao)
         getAllCVs = repository.getAllCVs
     }
-    fun getCVWithSkills(personName: String) = repository.getCVWithSkills(personName)
-    fun getCVWithLanguages(personName: String) = repository.getCVWithLanguages(personName)
+
     fun getCVWithSchools(personName: String) = repository.getCvWithSchools(personName)
     fun getCVWithJobs(personName : String) = repository.getCVWithJobs(personName)
-    fun getPeopleWithLanguage(lang : String) = repository.getPeopleWithLanguage(lang)
+
+    fun updateCV(cv : CV) { viewModelScope.launch(Dispatchers.IO) {  repository.updateCV(cv) }}
+    fun updateJob(job:Job) { viewModelScope.launch(Dispatchers.IO) { repository.updateJob(job) }}
+    fun updateSchool(school: School) { viewModelScope.launch(Dispatchers.IO) { repository.updateSchool(school) }}
 
     fun insertCV(cv : CV) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -43,16 +45,5 @@ class CVViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun insertSkill(skill: Skill){
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.addSkill(skill)
-        }
-    }
-
-    fun insertLanguage(language: Language){
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.addLanguage(language)
-        }
-    }
 
 }

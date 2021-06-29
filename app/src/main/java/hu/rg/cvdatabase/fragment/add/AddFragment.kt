@@ -49,12 +49,11 @@ class AddFragment : Fragment() {
 
     private fun addCVToDB() {
 
-
         // Personal information
         val name = nameTextField.text.toString()
         val age = ageTextField.text.toString()
 
-        // Address
+        // Personal information -> Address
         val streetName = streetNameTextField.text.toString()
         val streetNumber = streetNumberTextField.text.toString()
         val postalCode = postalCodeTextField.text.toString()
@@ -88,8 +87,6 @@ class AddFragment : Fragment() {
         // Motivation letter
         val motivationLetter = motivationLetter.text.toString()
 
-
-
         if (inputCheck(name, age, streetName, streetNumber, cityName, postalCode)) {
             val cv = CV(
                 name,
@@ -100,37 +97,33 @@ class AddFragment : Fragment() {
                     Integer.parseInt(postalCode),
                     cityName
                 ),
+                Skill(skillOne,skillTwo,skillThree),
+                Language(levelOne,levelTwo,levelThree,languageOne,languageTwo,languageThree),
                 motivationLetter
             )
 
             val job = Job(jobTitle, jobFrom, jobTo, companyName, name)
 
-            val languages: List<Language> = listOf(
-                Language(levelOne, languageOne, name),
-                Language(levelTwo, languageTwo, name),
-                Language(levelThree, languageThree, name)
-            )
-
-            val skills: List<Skill> = listOf(
-                Skill(skillOne, name),
-                Skill(skillTwo, name),
-                Skill(skillThree, name)
-            )
 
             val school = School(schoolName, schoolFrom, schoolTo, schoolSubject, name)
 
             mcvViewModel.insertCV(cv)
             mcvViewModel.insertJob(job)
-            languages.forEach { mcvViewModel.insertLanguage(it) }
-            skills.forEach { mcvViewModel.insertSkill(it) }
             mcvViewModel.insertSchool(school)
-            Toast.makeText(requireContext(), "CV succesfully added to database.", Toast.LENGTH_LONG)
+
+
+
+            Toast.makeText(
+                requireContext(),
+                "CV succesfully added to database.",
+                Toast.LENGTH_LONG
+            )
                 .show()
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         } else {
             Toast.makeText(
-                this.context,
-                "Please fill name and age fields at least.",
+                requireContext(),
+                "Please fill Personal informations fields at least.",
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -145,13 +138,14 @@ class AddFragment : Fragment() {
         cityName: String,
         postalCode: String
     ): Boolean =
-        !(
-                TextUtils.isEmpty(name)
-                        && TextUtils.isEmpty(age)
-                        && TextUtils.isEmpty(streetName)
-                        && TextUtils.isEmpty(streetNumber)
-                        && TextUtils.isEmpty(cityName)
-                        && TextUtils.isEmpty(postalCode)
+
+        (
+                name.isNotBlank()
+                        && age.isNotBlank()
+                        && streetName.isNotBlank()
+                        && streetNumber.isNotBlank()
+                        && cityName.isNotBlank()
+                        && postalCode.isNotBlank()
 
                 )
 

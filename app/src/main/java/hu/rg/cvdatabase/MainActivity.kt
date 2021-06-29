@@ -37,14 +37,6 @@ class MainActivity : AppCompatActivity() {
         val dao = CVDatabase.getInstance(this).cvDao
         val mCVViewModel = ViewModelProvider(this).get(CVViewModel::class.java)
 
-        val skills = listOf(
-            Skill("confidency", "Edward Pollen"),
-            Skill("intelligence", "Edward Pollen"),
-            Skill("braveness", "Edward Pollen"),
-            Skill("confidency", "Fildberg Gunther"),
-            Skill("intelligence", "Rajesh Anish"),
-            Skill("braveness", "Fildberg Gunther")
-        )
 
         val schools = listOf(
             School("Jake Wharton School","2013","2030","Computer Science","Edward Pollen"),
@@ -63,38 +55,25 @@ class MainActivity : AppCompatActivity() {
         val cvs = listOf(
             CV("Fildberg Gunther", 24,
                 Address("Kelvin street",2,65110,"Miami"),
+                Skill("Confidency","Braveness","Dexterity"),
+                Language("C","","","French","",""),
                 getString(R.string.mot_letter)),
             CV("Rajesh Anish", 52,Address("Dove street",12,4112,"Los Angeles"),
+                Skill("Agile","","Dexterity"),
+                Language("C","","","Polish","",""),
                 getString(R.string.mot_letter)),
             CV("Edward Pollen", 34,Address("Oregon street",98,3012,"Moscow"),
+                Skill("","","Clever"),
+                Language("C","","","Russian","",""),
                 getString(R.string.mot_letter))
         )
 
-        val languages = listOf(
-            Language("C","French","Edward Pollen") ,
-            Language("B","English","Edward Pollen"),
-            Language("C","French","Rajesh Anish") ,
-            Language("B","Polish","Fildberg Gunther")
-        )
 
         lifecycleScope.launch {
-            skills.forEach { dao.insertSkill(it) }
             schools.forEach { dao.insertSchool(it) }
             cvs.forEach { dao.insertCV(it) }
-            languages.forEach { dao.insertLanguage(it) }
             jobs.forEach { dao.insertJob(it)}
-
-            val cvWithJobs = dao.getCVWithJobs("Rajesh Anish")
-            val jobs = cvWithJobs
-
-
-
         }
-
-        mCVViewModel.getPeopleWithLanguage("French").observe(this, Observer { people ->
-            people.forEach { Log.d(this.toString(),it.personName) }
-        })
-
     }
 
     private suspend fun getJobs(person : String, dao : CVDao) = dao.getCVWithJobs("Edward Pollen")

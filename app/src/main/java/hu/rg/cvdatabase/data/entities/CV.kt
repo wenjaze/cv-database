@@ -13,7 +13,9 @@ data class CV(
     val name : String,
     val age : Int,
     @Embedded val address : Address,
-    val motivationLetter : String
+    @Embedded val skills : Skill,
+    @Embedded val languages : Language,
+    val motivationLetter : String,
 //    @Ignore
 //    val img : Bitmap
 ) : Parcelable

@@ -7,20 +7,18 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.room.Index
 import hu.rg.cvdatabase.R
-import hu.rg.cvdatabase.data.CVDatabase
-import hu.rg.cvdatabase.data.entities.Job
+import hu.rg.cvdatabase.data.entities.*
 import hu.rg.cvdatabase.data.viewmodel.CVViewModel
-import kotlinx.android.synthetic.main.fragment_add.view.*
+import kotlinx.android.synthetic.main.fragment_update.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
-import kotlinx.coroutines.launch
 import java.lang.IndexOutOfBoundsException
-import java.lang.NullPointerException
 
 class UpdateFragment : Fragment() {
 
@@ -43,49 +41,31 @@ class UpdateFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val rootView =  inflater.inflate(R.layout.fragment_update, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_update, container, false)
 
         val mCVViewModel = ViewModelProvider(this).get(CVViewModel::class.java)
         val currentCV = args.selectedCV
 
 
-        mCVViewModel.getCVWithJobs(currentCV.name).observe(viewLifecycleOwner, Observer { jobs->
-            rootView.updateJobName.setText(jobs.last().jobs.last().title)
-            rootView.updateJobFrom.setText(jobs.last().jobs.last().from)
-            rootView.updateJobTo.setText(jobs.last().jobs.last().to)
-            rootView.updateCompanyName.setText(jobs.last().jobs.last().company)
-        })
+            mCVViewModel.getCVWithJobs(currentCV.name)
+                .observe(viewLifecycleOwner, Observer { jobs ->
+                    if (jobs[0].jobs.isNotEmpty()) {
+                        rootView.updateJobName.setText(jobs.lastOrNull()?.jobs?.last()?.title)
+                        rootView.updateJobFrom.setText(jobs?.lastOrNull()?.jobs?.last()?.from)
+                        rootView.updateJobTo.setText(jobs?.lastOrNull()?.jobs?.last()?.to)
+                        rootView.updateCompanyName.setText(jobs?.lastOrNull()?.jobs?.last()?.company)
+                    }
+                })
 
-        mCVViewModel.getCVWithSchools(currentCV.name).observe(viewLifecycleOwner, Observer { schools->
-            rootView.updateSchoolName.setText(schools.last().schools.last().name)
-            rootView.updateSchoolFrom.setText(schools.last().schools.last().from)
-            rootView.updateSchoolTo.setText(schools.last().schools.last().to)
-            rootView.updateSchoolSubject.setText(schools.last().schools.last().subject)
-        })
-
-
-        mCVViewModel.getCVWithSkills(currentCV.name).observe(viewLifecycleOwner, Observer { skills ->
-            try {
-                rootView.updateSkillOne.setText(skills[0].skills[0].skillName)
-                rootView.updateSkillTwo.setText(skills[0].skills[1].skillName)
-                rootView.updateSkillThree.setText(skills[0].skills[2].skillName)
-            } catch (e: IndexOutOfBoundsException) {
-                Log.e(this.toString(), e.toString())
-            }
-        })
-
-        mCVViewModel.getCVWithLanguages(currentCV.name).observe(viewLifecycleOwner, Observer { languages->
-            try {
-                rootView.updateLanguageOne.setText(languages[0].languages[0].languageName)
-                rootView.updateLevelOne.setText(languages[0].languages[0].level)
-                rootView.updateLanguageOne.setText(languages[0].languages[1].languageName)
-                rootView.updateLevelTwo.setText(languages[0].languages[1].level)
-                rootView.updateLanguageThree.setText(languages[0].languages[2].languageName)
-                rootView.updateLevelThree.setText(languages[0].languages[2].level)
-            } catch (e : IndexOutOfBoundsException) {
-                Log.e(this.toString(),e.toString())
-            }
-        })
+        mCVViewModel.getCVWithSchools(currentCV.name)
+            .observe(viewLifecycleOwner, Observer { schools ->
+                if (schools[0].schools.isNotEmpty()) {
+                    rootView.updateSchoolNameTextField.setText(schools.last().schools.last().name)
+                    rootView.updateSchoolFrom.setText(schools.last().schools.last().from)
+                    rootView.updateSchoolTo.setText(schools.last().schools.last().to)
+                    rootView.updateSchoolSubject.setText(schools.last().schools.last().subject)
+                }
+            })
 
         rootView.updateNameTextField.setText(currentCV.name)
         rootView.updateAgeTextField.setText(currentCV.age.toString())
@@ -93,11 +73,124 @@ class UpdateFragment : Fragment() {
         rootView.updateStreetNumberTextField.setText(currentCV.address.streetNumber.toString())
         rootView.updatePostalCodeTextField.setText(currentCV.address.postalCode.toString())
         rootView.updateCityNameTextField.setText(currentCV.address.cityName)
+        rootView.updateSkillOne.setText(currentCV.skills.skillOne)
+        rootView.updateSkillTwo.setText(currentCV.skills.skillTwo)
+        rootView.updateSkillThree.setText(currentCV.skills.skillThree)
+        rootView.updateLanguageOne.setText(currentCV.languages.languageOneName)
+        rootView.updateLanguageTwo.setText(currentCV.languages.languageTwoName)
+        rootView.updateLanguageThree.setText(currentCV.languages.languageThreeName)
+        rootView.updateLevelOne.setText(currentCV.languages.levelOne)
+        rootView.updateLevelTwo.setText(currentCV.languages.levelTwo)
+        rootView.updateLevelThree.setText(currentCV.languages.levelThree)
         rootView.updateMotivationLetter.setText(currentCV.motivationLetter)
 
-
+        rootView.updateAddButton.setOnClickListener {
+            updateItems(mCVViewModel)
+        }
 
         return rootView
     }
 
+    private fun updateItems(mCVViewModel : CVViewModel) {
+
+        val name = updateNameTextField.text.toString()
+        val age = updateAgeTextField.text.toString()
+
+        val streetName = updateStreetNameTextField.text.toString()
+        val streetNumber = updateStreetNumberTextField.text.toString()
+        val cityName = updateCityNameTextField.text.toString()
+        val postalCode = updatePostalCodeTextField.text.toString()
+
+        val schoolName = updateSchoolNameTextField.text.toString()
+        val schoolFrom = updateSchoolFrom.text.toString()
+        val schoolTo = updateSchoolTo.text.toString()
+        val schoolSubject = updateSchoolSubject.text.toString()
+
+        val jobName = updateJobName.text.toString()
+        val jobFrom = updateJobFrom.text.toString()
+        val jobTo = updateJobTo.text.toString()
+        val companyName = updateCompanyName.text.toString()
+
+        val skillOne = updateSkillOne.text.toString()
+        val skillTwo = updateSkillTwo.text.toString()
+        val skillThree = updateSkillThree.text.toString()
+
+        val languageOne = updateLanguageOne.text.toString()
+        val languageTwo = updateLanguageTwo.text.toString()
+        val languageThree = updateLanguageThree.text.toString()
+
+        val levelOne = updateLevelOne.text.toString()
+        val levelTwo = updateLevelTwo.text.toString()
+        val levelThree = updateLevelThree.text.toString()
+
+        val motivationLetter = updateMotivationLetter.text.toString()
+
+        if (inputCheck(
+                name.toString(),
+                age.toString(),
+                streetName.toString(),
+                streetNumber.toString(),
+                cityName.toString(),
+                postalCode.toString()
+            )
+        ) {
+            val updatedCV = CV(
+                name,
+                Integer.parseInt(age),
+                Address(
+                    streetName,
+                    Integer.parseInt(streetNumber),
+                    Integer.parseInt(postalCode),
+                    cityName
+                ),
+                Skill(skillOne,skillTwo,skillThree),
+                Language(levelOne,levelTwo,levelThree,languageOne,languageTwo,languageThree),
+                motivationLetter
+            )
+
+            val job = Job(jobName, jobFrom, jobTo, companyName, name)
+            val school = School(schoolName, schoolFrom, schoolTo, schoolSubject, name)
+
+            mCVViewModel.updateCV(updatedCV)
+            mCVViewModel.insertJob(job)
+            mCVViewModel.insertSchool(school)
+
+            Toast.makeText(
+                requireContext(),
+                "CV "
+                +name+
+                        "succesfully updated.",
+                Toast.LENGTH_LONG
+            )
+                .show()
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        }
+        else {
+            Toast.makeText(
+                requireContext(),
+                "Please fill Personal informations fields at least.",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
+
+    private fun inputCheck(
+        name: String,
+        age: String,
+        streetName: String,
+        streetNumber: String,
+        cityName: String,
+        postalCode: String
+    ): Boolean =
+
+        (
+                name.isNotBlank()
+                        && age.isNotBlank()
+                        && streetName.isNotBlank()
+                        && streetNumber.isNotBlank()
+                        && cityName.isNotBlank()
+                        && postalCode.isNotBlank()
+
+                )
 }

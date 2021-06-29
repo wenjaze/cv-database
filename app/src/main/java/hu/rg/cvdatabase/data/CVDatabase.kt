@@ -11,10 +11,8 @@ import hu.rg.cvdatabase.data.entities.*
     CV::class,
     School::class,
     Job::class,
-    Language::class,
-    Skill::class
 ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class CVDatabase() : RoomDatabase() {

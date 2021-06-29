@@ -1,6 +1,7 @@
 package hu.rg.cvdatabase.data.repository
 
 import androidx.lifecycle.LiveData
+import androidx.room.Update
 import hu.rg.cvdatabase.data.dao.CVDao
 import hu.rg.cvdatabase.data.entities.*
 
@@ -8,11 +9,13 @@ class CVRepository(private val cvDao: CVDao) {
 
     val getAllCVs : LiveData<List<CV>> = cvDao.getAllCVs()
 
-    fun getCVWithLanguages(personName: String) = cvDao.getCVWithLanguages(personName)
-    fun getCVWithSkills(personName: String) = cvDao.getCVWithSkills(personName)
+
     fun getCVWithJobs(personName: String) = cvDao.getCVWithJobs(personName)
     fun getCvWithSchools(personName: String) = cvDao.getCVWithSchools(personName)
-    fun getPeopleWithLanguage(lang : String) = cvDao.getCVWhoSpeaksLanguage(lang)
+
+    suspend fun updateCV(cv : CV) { cvDao.updateCV(cv) }
+    suspend fun updateJob(job:Job) { cvDao.updateJob(job) }
+    suspend fun updateSchool(school: School) { cvDao.updateSchool(school) }
 
     suspend fun addCV(cv : CV) {
         cvDao.insertCV(cv)
@@ -20,14 +23,6 @@ class CVRepository(private val cvDao: CVDao) {
 
     suspend fun addSchool(school: School) {
         cvDao.insertSchool(school)
-    }
-
-    suspend fun addLanguage(language: Language) {
-        cvDao.insertLanguage(language)
-    }
-
-    suspend fun addSkill(skill: Skill) {
-        cvDao.insertSkill(skill)
     }
 
     suspend fun addJob(job : Job) {
