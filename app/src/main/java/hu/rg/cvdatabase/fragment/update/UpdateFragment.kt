@@ -30,7 +30,7 @@ class UpdateFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        if (item.itemId == android.R.id.home) findNavController().popBackStack()
         if (item.itemId == R.id.menu_delete) deleteCV()
         return super.onOptionsItemSelected(item)
     }

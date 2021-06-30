@@ -19,9 +19,6 @@ import kotlinx.android.synthetic.main.fragment_list.view.*
 
 class ListFragment : Fragment() {
 
-
-    private lateinit var mCVViewModel: CVViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -34,15 +31,15 @@ class ListFragment : Fragment() {
     ): View? {
 
         val rootView = inflater.inflate(R.layout.fragment_list, container, false)
-
-        val adapter = ListAdapter()
+        val mCVViewModel = ViewModelProvider(this).get(CVViewModel::class.java)
+        val adapter = ListAdapter(mCVViewModel,requireContext())
         val recyclerView = rootView.recyclerView
 
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val mCVViewModel = ViewModelProvider(this).get(CVViewModel::class.java)
+
         val spinner = rootView.spinner
         var selected: Int = 0
 

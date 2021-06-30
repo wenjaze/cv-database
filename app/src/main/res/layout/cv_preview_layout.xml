@@ -29,5 +29,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cv_icon" />
 
+    <ImageView
+        android:id="@+id/binIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/nameText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nameText"
+        app:layout_constraintTop_toTopOf="@+id/nameText"
+        app:srcCompat="@drawable/delete_icon"
+        app:tint="@color/secondaryColor" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

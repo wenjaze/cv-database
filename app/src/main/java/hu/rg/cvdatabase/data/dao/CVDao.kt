@@ -8,6 +8,8 @@ import hu.rg.cvdatabase.data.entities.relations.CVWithSchools
 
 @Dao
 interface CVDao {
+
+    // INSERT functions
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCV(cv: CV)
 

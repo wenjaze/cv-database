@@ -17,8 +17,8 @@
             android:id="@+id/action_listFragment_to_updateFragment"
             app:destination="@id/updateFragment" />
         <action
-            android:id="@+id/action_listFragment_to_CVFragment"
-            app:destination="@id/CVFragment" />
+            android:id="@+id/action_listFragment_to_previewFragment"
+            app:destination="@id/previewFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -42,12 +42,12 @@
             app:argType="hu.rg.cvdatabase.data.entities.CV" />
     </fragment>
     <fragment
-        android:id="@+id/CVFragment"
-        android:name="hu.rg.cvdatabase.CVFragment"
-        android:label="READ"
-        tools:layout="@layout/fragment_cv" >
+        android:id="@+id/previewFragment"
+        android:name="hu.rg.cvdatabase.fragment.preview.PreviewFragment"
+        android:label="PREVIEW"
+        tools:layout="@layout/fragment_preview" >
         <action
-            android:id="@+id/action_CVFragment_to_listFragment"
+            android:id="@+id/action_previewFragment_to_listFragment"
             app:destination="@id/listFragment" />
         <argument
             android:name="selectedCV"

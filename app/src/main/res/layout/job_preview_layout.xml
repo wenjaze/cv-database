@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvPreviewItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bgColor"
+    android:padding="@dimen/small_padding">
+
+    <TextView
+        android:id="@+id/subjectText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Computer Science"
+        android:textColor="@color/secondaryColor"
+        app:layout_constraintEnd_toEndOf="@+id/durationText"
+        app:layout_constraintStart_toStartOf="@+id/durationText"
+        app:layout_constraintTop_toBottomOf="@id/durationText" />
+
+    <TextView
+        android:id="@+id/schoolNamePreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kotlin School"
+        android:textColor="@color/secondaryColor"
+        android:textSize="@dimen/text_size_medium"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/durationText"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/durationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="2000 - 2010"
+        android:textColor="@color/secondaryColor"
+        app:layout_constraintEnd_toEndOf="@+id/schoolNamePreview"
+        app:layout_constraintStart_toStartOf="@+id/schoolNamePreview"
+        app:layout_constraintTop_toBottomOf="@+id/schoolNamePreview" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/schoolNamePreview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/job_icon"
+        app:tint="@color/secondaryColor" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

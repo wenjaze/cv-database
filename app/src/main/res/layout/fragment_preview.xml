@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".fragment.preview.PreviewFragment"
+    android:fillViewport="true"
+    android:background="@color/bgColor"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/languageOne"
+            android:layout_width="97dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="@string/language_raw"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintStart_toEndOf="@+id/skillOne"
+            app:layout_constraintTop_toBottomOf="@+id/LanguagesText" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/levelOne"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="Level"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintBottom_toTopOf="@+id/levelTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintStart_toEndOf="@+id/languageOne"
+            app:layout_constraintTop_toBottomOf="@+id/LanguagesText" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/languageThree"
+            android:layout_width="97dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="@string/language_raw"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintStart_toEndOf="@+id/skillThree"
+            app:layout_constraintTop_toBottomOf="@+id/languageTwo" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/levelThree"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="Level"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/languageTwo"
+            app:layout_constraintTop_toBottomOf="@+id/levelTwo" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/skillOne"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="Skill"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="@+id/skillsText"
+            app:layout_constraintStart_toStartOf="@+id/skillsText"
+            app:layout_constraintTop_toBottomOf="@+id/skillsText" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/languageTwo"
+            android:layout_width="97dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="@string/language_raw"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintStart_toEndOf="@+id/skillTwo"
+            app:layout_constraintTop_toBottomOf="@+id/languageOne" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/levelTwo"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="Level"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/languageTwo"
+            app:layout_constraintTop_toBottomOf="@+id/levelOne" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/skillTwo"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="Skill"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="@+id/skillsText"
+            app:layout_constraintStart_toStartOf="@+id/skillsText"
+            app:layout_constraintTop_toBottomOf="@+id/skillOne" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/skillThree"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="Skill"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="@+id/skillsText"
+            app:layout_constraintStart_toStartOf="@+id/skillsText"
+            app:layout_constraintTop_toBottomOf="@+id/skillTwo" />
+
+        <TextView
+            android:id="@+id/skillsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skills:"
+            android:textColor="@color/secondaryColor"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintEnd_toStartOf="@+id/LanguagesText"
+            app:layout_constraintHorizontal_bias="0.424"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/educationList" />
+
+        <TextView
+            android:id="@+id/LanguagesText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="68dp"
+            android:text="Languages:"
+            android:textColor="@color/secondaryColor"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/skillsText"
+            app:layout_constraintTop_toBottomOf="@+id/educationList" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/nameTextField"
+            android:layout_width="263dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/personalInformationText" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/streetNameTextField"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="St. name"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameTextField" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/cityNameTextField"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="City"
+            android:inputType="textPersonName"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/streetNumberTextField" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/streetNumberTextField"
+            android:layout_width="118dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="St. number"
+            android:inputType="number"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintStart_toEndOf="@+id/streetNameTextField"
+            app:layout_constraintTop_toBottomOf="@+id/nameTextField" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/ageTextField"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="Age"
+            android:inputType="number"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/nameTextField"
+            app:layout_constraintTop_toBottomOf="@+id/personalInformationText" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/postalCodeTextField"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Postal code"
+            android:inputType="number"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/streetNumberTextField"
+            app:layout_constraintTop_toBottomOf="@+id/ageTextField" />
+
+        <TextView
+            android:id="@+id/personalInformationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal information:"
+            android:textColor="@color/secondaryColor"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/MotivationLetterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Motivation letter:"
+            android:textColor="@color/secondaryColor"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <EditText
+            android:textColor="@color/secondaryColor"
+            android:id="@+id/motivationLetter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="I applied to this job because..."
+            android:inputType="textMultiLine"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/MotivationLetterText" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/educationList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/experienceList"
+            tools:layout_editor_absoluteX="30dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/experienceList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/cityNameTextField"
+            tools:layout_editor_absoluteX="190dp" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="391dp"
+            android:layout_height="1dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@id/MotivationLetterText"
+            app:layout_constraintTop_toBottomOf="@+id/languageThree"
+ />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
