@@ -32,9 +32,12 @@ interface CVDao {
     @Update
     suspend fun updateSchool(school: School)
 
-    @Transaction
     @Query("SELECT * FROM cv WHERE LOWER(languageOneName) LIKE LOWER(:language)  or LOWER(languageTwoName) == LOWER(:language) or LOWER(languageThreeName) == LOWER(:language)")
     fun getCVsWithLanguage(language: String) : LiveData<List<CV>>
+
+
+    @Query("SELECT * FROM cv WHERE LOWER(skillOne) LIKE LOWER(:skill)  or LOWER(skillTwo) == LOWER(:skill) or LOWER(skillThree) == LOWER(:skill)")
+    fun getCVsWithSkill(skill : String) : LiveData<List<CV>>
 
     @Query("SELECT * FROM cv WHERE LOWER(name) LIKE LOWER(:name)")
     fun getCVByName(name : String) : LiveData<List<CV>>

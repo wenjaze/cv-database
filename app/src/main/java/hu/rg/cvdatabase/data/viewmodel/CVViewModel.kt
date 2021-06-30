@@ -31,6 +31,7 @@ class CVViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getCVWithCompanyName(companyName : String) = repository.getCVWithCompanyNAme(companyName)
     fun getCVWithSchoolName(schoolName : String) = repository.getCVWithSchoolName(schoolName)
+    fun getCVsWithSkill(skill : String) = repository.getCVsWithSkill(skill)
 
     fun getCVsWithLanguage(language : String) = repository.getCVsWithLanguage(language)
 

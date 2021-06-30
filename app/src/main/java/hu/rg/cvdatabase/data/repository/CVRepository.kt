@@ -20,6 +20,7 @@ class CVRepository(private val cvDao: CVDao) {
 
     fun getCVWithCompanyNAme(companyName : String) = cvDao.getCVWithCompanyName(companyName)
     fun getCVWithSchoolName(schoolName : String) = cvDao.getCVWithSchoolName(schoolName)
+    fun getCVsWithSkill(skill : String) = cvDao.getCVsWithSkill(skill)
 
     fun getCVsWithLanguage(language : String)=
         cvDao.getCVsWithLanguage(language)

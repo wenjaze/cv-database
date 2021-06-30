@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -44,8 +45,8 @@ class ListFragment : Fragment() {
         val mCVViewModel = ViewModelProvider(this).get(CVViewModel::class.java)
         val spinner = rootView.spinner
         var selected: Int = 0
-        val categories: MutableList<String> = ArrayList()
 
+        val categories: MutableList<String> = ArrayList()
         categories.add("Language")
         categories.add("Company name")
         categories.add("School name")
@@ -63,22 +64,15 @@ class ListFragment : Fragment() {
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
             }
         }
 
         rootView.searchButton.setOnClickListener {
-            if (selected == 0) {
-                mCVViewModel.getCVsWithLanguage("%" + rootView.searchField.text.toString() + "%")
-                    .observe(viewLifecycleOwner, Observer { cvs ->
-                        adapter.setList(cvs)
-                    })
-            }
-            if (selected == 1) {
-                mCVViewModel.getCVWithCompanyName("%"+rootView.searchField.text+"%").observe(viewLifecycleOwner, Observer { cvs -> adapter.setList(cvs) })
-            }
-            if (selected == 2){
-                mCVViewModel.getCVWithSchoolName("%"+rootView.searchField.text+"%").observe(viewLifecycleOwner, Observer { cvs -> adapter.setList(cvs) })
+            when (selected){
+                0 -> mCVViewModel.getCVsWithLanguage("%" + rootView.searchField.text.toString() + "%").observe(viewLifecycleOwner, Observer { cvs -> adapter.setList(cvs) })
+                1 -> mCVViewModel.getCVWithCompanyName("%"+rootView.searchField.text+"%").observe(viewLifecycleOwner, Observer { cvs -> adapter.setList(cvs) })
+                2 -> mCVViewModel.getCVWithSchoolName("%"+rootView.searchField.text+"%").observe(viewLifecycleOwner, Observer { cvs -> adapter.setList(cvs) })
+                3 -> mCVViewModel.getCVsWithSkill("%"+rootView.searchField.text+"%").observe(viewLifecycleOwner, Observer { cvs -> adapter.setList(cvs) })
             }
         }
 
